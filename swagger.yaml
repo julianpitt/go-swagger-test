@@ -1,0 +1,46 @@
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
+info:
+  title: Swagger Hello world
+  license:
+    name: MIT
+  version: 1.0.0
+host: localhost:8080
+paths:
+  /hello:
+    get:
+      tags:
+      - hello
+      summary: returns a hello world message
+      operationId: SayHello
+      responses:
+        "200":
+          description: value from hello function
+          schema:
+            $ref: '#/definitions/Message'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Error:
+    type: object
+    required:
+    - code
+    - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  Message:
+    type: object
+    properties:
+      message:
+        type: string
