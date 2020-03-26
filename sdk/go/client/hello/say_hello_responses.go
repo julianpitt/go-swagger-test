@@ -10,9 +10,10 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
-	"github.com/go-openapi/strfmt"
 
-	"github.com/julianpitt/go-swagger-test/sdk/go/models"
+	strfmt "github.com/go-openapi/strfmt"
+
+	models "github.com/julianpitt/go-swagger-test/sdk/go/models"
 )
 
 // SayHelloReader is a Reader for the SayHello structure.

@@ -8,7 +8,8 @@ package client
 import (
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/go-openapi/strfmt"
+
+	strfmt "github.com/go-openapi/strfmt"
 
 	"github.com/julianpitt/go-swagger-test/sdk/go/client/hello"
 )
@@ -55,7 +56,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *HelloWorld
 
 	cli := new(HelloWorld)
 	cli.Transport = transport
+
 	cli.Hello = hello.New(transport, formats)
+
 	return cli
 }
 
@@ -100,7 +103,7 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // HelloWorld is a client for hello world
 type HelloWorld struct {
-	Hello hello.ClientService
+	Hello *hello.Client
 
 	Transport runtime.ClientTransport
 }
@@ -108,5 +111,7 @@ type HelloWorld struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *HelloWorld) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
+
 	c.Hello.SetTransport(transport)
+
 }

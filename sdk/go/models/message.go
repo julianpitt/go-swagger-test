@@ -6,12 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"github.com/go-openapi/strfmt"
+	strfmt "github.com/go-openapi/strfmt"
+
 	"github.com/go-openapi/swag"
 )
 
 // Message message
-//
 // swagger:model Message
 type Message struct {
 
